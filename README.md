@@ -1,6 +1,6 @@
-# -CN-Wireshark-and-Traceroute
+# -CN-Wireshark-Traceroute-and-IPv4-Questions
  - 2017년 1학기 성균관대학교 최형기 교수님 컴퓨터네트웤개론 수업 1번째 과제
- - Wireshark, Traceroute 프로그램에 관한 문제와 IPv4 및 router에 관한 문제
+ - Wireshark, Traceroute 프로그램에 관한 문제와 IPv4 및 router에 관한 문제 풀이
  
  - 2017 1st semester Sungkyunkwan University Professor Hyoung-Kee Choi's Introduction to Computer Networking class, 1st assignment
  - Problems with Wireshark, Traceroute program and problems with IPv4 and router
