@@ -1,7 +1,6 @@
 # -CN-Wireshark-Traceroute-and-IPv4-Questions
  - 2017년 1학기 성균관대학교 최형기 교수님 컴퓨터네트웤개론 수업 1번째 과제
  - Wireshark, Traceroute 프로그램에 관한 문제와 IPv4 및 router에 관한 문제 풀이
- 
  - 2017 1st semester Sungkyunkwan University Professor Hyoung-Kee Choi's Introduction to Computer Networking class, 1st assignment
  - Problems with Wireshark, Traceroute program and problems with IPv4 and router
 
@@ -40,7 +39,8 @@
  - 11001011 . 11111111 . 11111100 . 10101010(2)
  
 #### b)	How many IP addresses are assigned for this network? 
- - Subnet mask : 11111111 . 11111111 . 11111111 . 11000000(2). 즉, 이 subnetwork는 26 = 64개의 IP 주소가 할당되어 있다.
+ - Subnet mask : 11111111 . 11111111 . 11111111 . 11000000(2)  
+ 즉, 이 subnetwork는 26 = 64개의 IP 주소가 할당되어 있다.
  
 #### c)	Specify the starting IP address and the ending IP address for this network. 
  - IP 주소와 subnet mask와 AND연산을 한다.
@@ -60,11 +60,16 @@
  - 네트워크 주소를 2진법으로 표현한 것이다. | 는 network와 host IP 주소의 경계를 나타낸다.
  
  **a) 135.46.63.10**
-   - 위의 IP 주소의 135.46 까지 부분은 Ifc0, Ifc1과 똑같다. 따라서 둘 중 하나로 이동한다고 예상하고, subnet mask는 /22를 적용한다. IP주소를 2진법으로 표현하면, 135.46.63.10 : 10000111 . 00101110 . 001111 | 11 . 00001010(2) 이다. 위의 주소에서 왼쪽부터 22번째 비트까지의 network address는 Ifc1의 network address와 같다. 따라서 Router는 Ifc1라는 interface로 보낸다.
+   - 위의 IP 주소의 135.46 까지 부분은 Ifc0, Ifc1과 똑같다. 따라서 둘 중 하나로 이동한다고 예상하고, subnet mask는 /22를 적용한다.  
+   IP주소를 2진법으로 표현하면, 135.46.63.10 : 10000111 . 00101110 . 001111 | 11 . 00001010(2) 이다.  
+   위의 주소에서 왼쪽부터 22번째 비트까지의 network address는 Ifc1의 network address와 같다.  
+   따라서 Router는 Ifc1라는 interface로 보낸다.
    
  **b)	192.53.56.7**
-   - 위의 IP 주소의 192.53 까지 부분은 Ifc2와 똑같다. 따라서 subnet mask는 /23를 임시로 적용한다. IP주소를 2진법으로 표현하면,
-192.53.56.7 : 11000000 . 00110101 . 0011100 | 0 . 00000111(2) 이다. 위의 주소에서 왼쪽부터 23번째 비트까지의 network address는 Ifc2의 network address와 다르다. 따라서 Router는 Ifc3이라는 interface로 보낸다.
+   - 위의 IP 주소의 192.53 까지 부분은 Ifc2와 똑같다. 따라서 subnet mask는 /23를 임시로 적용한다.  
+   IP주소를 2진법으로 표현하면, 192.53.56.7 : 11000000 . 00110101 . 0011100 | 0 . 00000111(2) 이다.  
+   위의 주소에서 왼쪽부터 23번째 비트까지의 network address는 Ifc2의 network address와 다르다.  
+   따라서 Router는 Ifc3이라는 interface로 보낸다.
 -----------------------------------------------------------------------
 
 ### (3) IPv4 allocation
@@ -72,15 +77,20 @@
  
    - 한 interface 당 하나의 IP가 필요하다. 또한 IP 주소는 2n 개의 형태로 할당할 수 있다.
    
-   - Subnet 1은 60개 이상의 IP 주소가 필요하다. 따라서 Subnet 1에게는 26 = 64(>60)개의 IP 주소를 할당해준다. Subnet 2는 90개 이상의 IP 주소가 필요하다. 따라서 Subnet 2에게는 27 = 128(>90)개의 IP 주소를 할당해준다. Subnet 3은 12개 이상의 IP 주소가 필요하다. 따라서 Subnet 3에게는 24 = 16(>12)개의 IP 주소를 할당해준다.
+   - Subnet 1은 60개 이상의 IP 주소가 필요하다. 따라서 Subnet 1에게는 26 = 64(>60)개의 IP 주소를 할당해준다.  
+   Subnet 2는 90개 이상의 IP 주소가 필요하다. 따라서 Subnet 2에게는 27 = 128(>90)개의 IP 주소를 할당해준다.  
+   Subnet 3은 12개 이상의 IP 주소가 필요하다. 따라서 Subnet 3에게는 24 = 16(>12)개의 IP 주소를 할당해준다.
    
    - 할당되는 IP 주소가 많은 subnet 순서대로 할당한다. 즉, 2 -> 1 -> 3 순서로 할당한다.
    
-     Subnet 2 는 00000000(2) ~ 01111111(2) 까지 할당해줘야 하므로, Subnet 2의 subnet mask 는 11111111 . 11111111 . 11111111 . 1 | 0000000(2) 이다. 따라서 Subnet 2 의 network address : 223.1.17.0/25 이다.
+     Subnet 2 는 00000000(2) ~ 01111111(2) 까지 할당해줘야 하므로, Subnet 2의 subnet mask 는  
+     11111111 . 11111111 . 11111111 . 1 | 0000000(2) 이다. 따라서 Subnet 2 의 network address : 223.1.17.0/25 이다.
      
-     Subnet 1 은 10000000(2) ~ 10111111(2) 까지 할당해줘야 하므로, Subnet 1의 subnet mask 는 11111111 . 11111111 . 11111111 . 11 | 000000(2) 이다. 따라서 Subnet 1 의 network address : 223.1.17.128/26 이다.
+     Subnet 1 은 10000000(2) ~ 10111111(2) 까지 할당해줘야 하므로, Subnet 1의 subnet mask 는  
+     11111111 . 11111111 . 11111111 . 11 | 000000(2) 이다. 따라서 Subnet 1 의 network address : 223.1.17.128/26 이다.
      
-     Subnet 3 은 11000000(2) ~ 11001111(2) 까지 할당해줘야 하므로, Subnet 3의 subnet mask 는 11111111 . 11111111 . 11111111 . 1111 | 0000(2) 이다. 따라서 Subnet 3 의 network address : 223.1.17.192/28 이다.
+     Subnet 3 은 11000000(2) ~ 11001111(2) 까지 할당해줘야 하므로, Subnet 3의 subnet mask 는  
+     11111111 . 11111111 . 11111111 . 1111 | 0000(2) 이다. 따라서 Subnet 3 의 network address : 223.1.17.192/28 이다.
 -----------------------------------------------------------------------
 
 ### (4) Router using longest prefix matching
